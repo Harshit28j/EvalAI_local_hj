@@ -2810,7 +2810,18 @@
                         utilities.hideLoader();
                         $mdDialog.hide();
                         var error = response.data;
-                        $rootScope.notify("error", error);
+                        if (error.test_annotation) {
+                            var errorMessage = error.test_annotation[0];
+                            $rootScope.notify("error", errorMessage);
+                        }
+                        else if (error.description) {
+                            var errorMessage = error.description[0];
+                            $rootScope.notify("error", errorMessage);
+                        }
+                        // Default error handling
+                        else {
+                            $rootScope.notify("error", "An error occurred. Please try again later.");
+                        }
                     }
                 };
                 utilities.showLoader();
