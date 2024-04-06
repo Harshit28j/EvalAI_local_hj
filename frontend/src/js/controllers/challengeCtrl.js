@@ -2820,7 +2820,7 @@
                         }
                         // Default error handling
                         else {
-                            $rootScope.notify("error", "An error occurred. Please try again later.");
+                            $rootScope.notify("error", "An error occurred. Please make sure file is not empty and description is not empty.");
                         }
                     }
                 };
